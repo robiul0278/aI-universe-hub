@@ -19,7 +19,6 @@
     <main class="container mt-5">
 
 <!-- All Card Created here========================= -->
-
         <section>
             <div id="ai-container"  class="row row-cols-1 row-cols-md-3 g-4">
               </div>
@@ -27,12 +26,78 @@
 
 
 <!-- Show All Items =============================== -->
-
-        <section>
-             <div id="show-all" class="text-center -none my-2">
-                <button id="btn-show-all" class="btn btn-danger">Show all</button>
+      <section>
+             <div id="show-all" class="text-center my-2 d-none">
+                <button onClick="showAllData()" class="btn btn-danger">Show all</button>
               </div>
         </section>
+
+<!-- data loading spinners========================== -->
+        <section id="loader" class="d-none">
+            <div  style="height: 400px" class=" d-flex justify-content-center align-items-center">
+              <div class="spinner-border text-info" role="status">
+                <span class="visually-hidden ">Loading...</span>
+              </div>
+            </div>
+          </section>
+
+
+<!-- Modal ================================= -->
+    <!-- Button trigger modal -->
+    <div class="modal fade modal-xl" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="position-absolute top-0 start-100 translate-middle border-0 rounded-5 text-bg-danger" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
+          </div>
+          <div class="modal-body">
+            <div class=" row row-cols-1 row-cols-lg-2 g-4">
+              <div class="col">
+                <div class="card h-100 bg-danger-subtle">
+                  <div class="card-body">
+                      <h3 class="lh-base p-4">ChatGPT is an AI-powered chatbot platform that uses OpenAI's GPT technology to simulate human conversation.</h3>
+                      <div class="d-flex justify-content-around text-center my-5">
+                        <div class="bg-light px-4 w-25 py-2 rounded-3 fw-bold text-success">$10/ month Basic</div>
+                        <div class="bg-light px-4 w-25 py-2 rounded-3 fw-bold .text-warning">$10/ month Basic</div>
+                        <div class="bg-light px-4 w-25 py-2 rounded-3 fw-bold text-danger">$10/ month Basic</div>
+                      </div>
+                      <div class="d-flex justify-content-around">
+                        <div>
+                          <h3>Features</h3>
+                          <ul>
+                            <li>Customizable responses</li>
+                            <li>Multilingual support</li>
+                            <li>Seamless integration</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h3>Integrations</h3>
+                          <ul>
+                            <li>FB Messenger</li>
+                            <li>Slack</li>
+                            <li>Telegram</li>
+                          </ul>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card h-100">
+                  <img src="Rectangle 15.png" class="card-img-top p-4" alt="...">
+                  <div class="card-body">
+                    <h3 class="card-title text-center">Hi, how are you doing today?</h3>
+                    <p class="card-text text-center">I'm doing well, thank you for asking. How can I assist you today?</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="api.js"></script>
