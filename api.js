@@ -8,7 +8,6 @@ const loadAi = () =>{
 
 
 const displayAi = aiHubs =>{
-
 // Remove Show all button
     const showAll = document.getElementById('show-all')
     if(aiHubs.length < 10){  
@@ -113,6 +112,7 @@ const displayAiDetails = aiDetails => {
                   <li>${aiDetails.integrations[1] ? aiDetails.integrations[1] : "No data found!"}</li>
                   <li>${aiDetails.integrations[2] ? aiDetails.integrations[2] : "No data found!"}</li>
                   <li>${aiDetails.integrations[3] ? aiDetails.integrations[3] : "No data found!"}</li>
+                  <li>${aiDetails.integrations[4] ? aiDetails.integrations[4] : "No data found!"}</li>
                 </ul>
               </div>
             </div>
@@ -122,9 +122,10 @@ const displayAiDetails = aiDetails => {
     <div class="col p-3">
       <div class="card h-100 position-relative">
         <img src="${aiDetails.image_link[0]}" class="card-img-top p-4" alt="...">
+        <span id="accuracy" class="text-bg-danger p-2 rounded-3" style="position: absolute; right: 40px; top: 40px;">${aiDetails.accuracy.score ? aiDetails.accuracy.score*100 : "0"}% Accuracy </span>
         <div class="card-body">
           <h3 class="card-title text-center">${aiDetails.input_output_examples[0].input}</h3>
-          <p class="card-text text-center">${aiDetails.input_output_examples[0].output}</p>
+          <p class="card-text text-center">${aiDetails.input_output_examples[0].output ? aiDetails.input_output_examples[0].output : "No! Not Yet! Take a break!!!"}</p>
         </div>
       </div>
     </div>
@@ -135,5 +136,3 @@ const displayAiDetails = aiDetails => {
 loadAi()
 
 
-
-// dataArray.sort((a, b) => new Date(a.published_in) - new Date(b.published_in));
