@@ -6,8 +6,8 @@ const loadAi = () =>{
 }
 
 
-
 const displayAi = aiHubs =>{
+    toggleSpinner(true);
 // Remove Show all button
     const showAll = document.getElementById('show-all')
     if(aiHubs.length < 10){  
@@ -20,7 +20,6 @@ const displayAi = aiHubs =>{
 
     const aiContainer = document.getElementById('ai-container');
     aiContainer.innerHTML = ''; 
-    toggleSpinner(true);
     aiHubs.forEach(aiHub =>{
         // console.log(aiHub)
         const aiDiv = document.createElement('div');
@@ -66,14 +65,14 @@ const toggleSpinner = isLoading => {
 }
 
 
-
+// Show All Data ===============================================
 const showAllData = () => {
     fetch("https://openapi.programming-hero.com/api/ai/tools")
     .then(res => res.json())
     .then(data => displayAi(data.data.tools))
 }
 
-
+// Modal Function =================================================
 const aiDetails = (id)=> {
     const url =`https://openapi.programming-hero.com/api/ai/tool/${id}`;
     fetch(url)
@@ -133,6 +132,5 @@ const displayAiDetails = aiDetails => {
     `;
 }
 
+
 loadAi()
-
-
