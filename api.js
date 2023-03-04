@@ -3,11 +3,13 @@ const loadAi = () =>{
     fetch("https://openapi.programming-hero.com/api/ai/tools")
     .then(res => res.json())
     .then(data => displayAi(data.data.tools.slice(0, 6)))
+    toggleSpinner(true);
+
 }
 
 
 const displayAi = aiHubs =>{
-    toggleSpinner(true);
+    
 // Remove Show all button
     const showAll = document.getElementById('show-all')
     if(aiHubs.length < 10){  
@@ -49,7 +51,8 @@ const displayAi = aiHubs =>{
         `;
         aiContainer.appendChild(aiDiv);
     })
-    toggleSpinner(false);
+  toggleSpinner(false);
+
 }
 
 
@@ -124,7 +127,7 @@ const displayAiDetails = aiDetails => {
         <span id="accuracy" class="text-bg-danger p-2 rounded-3" style="position: absolute; right: 40px; top: 40px;">${aiDetails.accuracy.score ? aiDetails.accuracy.score*100 : "0"}% Accuracy </span>
         <div class="card-body">
           <h3 class="card-title text-center">${aiDetails.input_output_examples[0].input}</h3>
-          <p class="card-text text-center">${aiDetails.input_output_examples[0].output ? aiDetails.input_output_examples[0].output : "No! Not Yet! Take a break!!!"}</p>
+          <p class="card-text text-center">${aiDetails.input_output_examples[0].output ? aiDetails.input_output_examples[0].output : "No! Not Yet! Take a break!!"}</p>
         </div>
       </div>
     </div>
